@@ -1,13 +1,46 @@
-import React from "react";
+import { Route, Switch } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
 
+import ErrorBoundary from "components/ErrorBoundary";
+import Header from "components/Header";
+import Main from "components/Main";
+import Spinner from "components/Spinner";
+import pathnames from "utils/const/pathnames";
 import styles from "./App.module.scss";
 
-// export interface AppProps { compiler: string; framework: string; }
+const Home = lazy(() => import("pages/Home"));
+const Page404 = lazy(() => import("pages/Page404"));
+const Project = lazy(() => import("pages/Project"));
 
-function App () {
+const App = () => {
+    const { PROJECTS } = pathnames;
+
     return (
-        <h1>Hello there</h1>
+        <section className={styles.container}>
+            <Header />
+
+            <Main>
+                <ErrorBoundary>
+                    <Suspense fallback={<Spinner />}>
+                        <Switch>
+                            <Route
+                                component={Home}
+                                exact
+                                path="/"
+                            />
+
+                            <Route
+                                component={Project}
+                                path={`${PROJECTS}/:projectName`}
+                            />
+
+                            <Route component={Page404} />
+                        </Switch>
+                    </Suspense>
+                </ErrorBoundary>
+            </Main>
+        </section>
     );
-}
+};
 
 export default App;

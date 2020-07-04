@@ -1,3 +1,4 @@
+const Dotenv = require("dotenv-webpack");
 const path = require("path");
 
 module.exports = {
@@ -9,11 +10,17 @@ module.exports = {
         extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
         alias: {
             components: path.resolve(__dirname, "src/components/"),
+            context: path.resolve(__dirname, "src/context/"),
+            pages: path.resolve(__dirname, "src/pages/"),
             styles: path.resolve(__dirname, "src/styles/"),
             types: path.resolve(__dirname, "src/types/"),
             utils: path.resolve(__dirname, "src/utils/")
         }
     },
+
+    plugins: [
+        new Dotenv()
+    ],
 
     module: {
         rules: [

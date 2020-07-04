@@ -1,0 +1,12 @@
+@import "styles/style.scss";
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+}
+
+.button {
+    width: 100%;
+    min-height: 6rem;
+}

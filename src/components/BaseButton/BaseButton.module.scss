@@ -1,0 +1,27 @@
+@import "styles/style.scss";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 3rem;
+    border: 2px solid $button-border-color;
+    outline: none;
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    user-select: none;
+    font-family: $font-family--normal;
+    font-size: $font-size--medium;
+    font-weight: 400;
+    transition: filter 100ms ease;
+    cursor: pointer;
+
+    &:not(.disabled):hover {
+        filter: contrast(106%);
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}

@@ -1,0 +1,11 @@
+@import "styles/style.scss";
+
+.container {
+    grid-area: main;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 3vw;
+    }
+}

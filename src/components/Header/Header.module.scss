@@ -1,0 +1,33 @@
+@import "styles/style.scss";
+
+.container {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: ". content .";
+    grid-template-columns: auto minmax(20rem, $grid-width) auto;
+    justify-content: center;
+    background-color: $header-bg-color;
+}
+
+.content {
+    grid-area: content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: $grid-width;
+}
+
+a {
+    color: set-text-color($header-bg-color);
+    font-size: $font-size--large;
+    user-select: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        grid-template-areas: "content";
+        grid-template-columns: 1fr;
+        padding: 0 3vw;
+    }
+}

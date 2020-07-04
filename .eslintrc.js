@@ -32,6 +32,12 @@ module.exports = {
             "rules": {
                 "max-len": ["error", { "code": 120 }]
             }
+        },
+        {
+            "files": ["src/types/*"],
+            "rules": {
+                "no-undef": 0
+            }
         }
     ],
 
@@ -39,6 +45,8 @@ module.exports = {
         "import/resolver": {
             alias: [
                 ["components", "./src/components"],
+                ["context", "./src/context"],
+                ["pages", "./src/pages"],
                 ["styles", "./src/styles"],
                 ["types", "./src/types"],
                 ["utils", "./src/utils"]
@@ -91,6 +99,7 @@ module.exports = {
         "react-hooks/exhaustive-deps": "warn",
         "react-hooks/rules-of-hooks": "error",
         "semi": [2, "always", { "omitLastInOneLineBlock": true }],
-        "space-before-function-paren": ["error", "always"]
+        "space-before-function-paren": ["error", "always"],
+        "@typescript-eslint/no-unused-vars": "error"
     }
 };

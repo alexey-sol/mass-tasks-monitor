@@ -1,0 +1,37 @@
+@import "styles/style.scss";
+
+$border: 0.6rem solid $bg-color--default;
+
+.container {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    padding: 1rem 1.5rem;
+    border-bottom: $border;
+    background-color: $task-info-header-bg-color;
+    font-weight: 500;
+
+    &:not(:last-of-type) {
+        border-right: $border;
+    }
+
+    &:nth-of-type(1) {
+        width: 29.5rem;
+    }
+
+    &:nth-of-type(2) {
+        width: 19.5rem;
+    }
+}
+
+td {
+    padding: 1rem 1.5rem;
+    border-bottom: $border;
+
+    &:not(:last-of-type) {
+        border-right: $border;
+    }
+}

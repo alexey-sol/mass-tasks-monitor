@@ -1,3 +1,4 @@
 export default {
-    PROJECTS: "projects"
+    PROJECTS: "projects",
+    TASKS: "tasks"
 };

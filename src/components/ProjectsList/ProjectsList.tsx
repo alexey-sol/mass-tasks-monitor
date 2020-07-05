@@ -1,46 +1,52 @@
 import { Link } from "react-router-dom";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Context } from "context/Projects";
 import BaseButton from "components/BaseButton";
-import normalizeProjectName from "utils/helpers/normalizeProjectName";
+import Project from "types/Project";
+import Spinner from "components/Spinner";
+import fetchProjects from "utils/api/fetchProjects";
 import pathnames from "utils/const/pathnames";
 import styles from "./ProjectsList.module.scss";
 
 const ProjectsList = () => {
-    const {
-        fetchProjects,
-        projects
-    } = React.useContext(Context);
-
-    const { current: doFetchProjects } = useRef(fetchProjects);
+    const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        doFetchProjects();
-    }, [doFetchProjects]);
+        const doFetchProjects = async () => {
+            const fetchedProjects = await fetchProjects();
+            setProjects(fetchedProjects);
+        };
 
-    const buttonElems = projects.map(({ name }) => {
-        const normalizedName = normalizeProjectName(name);
-        const to = `${pathnames.PROJECTS}/${normalizedName}`;
+        doFetchProjects();
+    }, []);
+
+    const buttonElems = projects.map(({ Id, Name }) => {
+        const to = `${pathnames.PROJECTS}/${Id}`;
 
         return (
             <Link
-                key={normalizedName}
+                key={Id}
                 to={to}
             >
                 <BaseButton
                     className={styles.button}
-                    text={name}
+                    text={Name}
                 />
             </Link>
         );
     });
 
-    return (
+    const elem = (
         <section className={styles.container}>
             {buttonElems}
         </section>
     );
+
+    const isPending = projects.length === 0;
+
+    return (isPending)
+        ? <Spinner />
+        : elem;
 };
 
 export default ProjectsList;

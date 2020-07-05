@@ -95,6 +95,7 @@ module.exports = {
         "react/jsx-indent-props": ["error", 4],
         "react/jsx-props-no-spreading": 0,
         "react/no-danger": 0,
+        "react/prop-types": 0,
         "react/static-property-placement": 0,
         "react-hooks/exhaustive-deps": "warn",
         "react-hooks/rules-of-hooks": "error",

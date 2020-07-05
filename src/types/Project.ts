@@ -1,5 +1,6 @@
 interface Project {
-    name: string;
+    Id: string;
+    Name: string;
 }
 
 export default Project;

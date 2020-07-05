@@ -1,14 +1,10 @@
 @import "styles/style.scss";
 
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6rem;
+    height: 8rem;
+    font-size: $font-size--large;
+    font-weight: 500;
 }

@@ -31,7 +31,7 @@ const App = () => {
 
                             <Route
                                 component={Project}
-                                path={`${PROJECTS}/:projectName`}
+                                path={`${PROJECTS}/:projectId`}
                             />
 
                             <Route component={Page404} />

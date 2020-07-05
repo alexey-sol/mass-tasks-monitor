@@ -1,7 +1,9 @@
+import Project from "types/Project";
+
 export interface Props {
-    children: React.ReactNode;
+    project: Project;
 }
 
 export const defaultProps = {
-    children: null
+    project: {}
 } as Partial<Props>;

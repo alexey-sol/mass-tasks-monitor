@@ -3,7 +3,7 @@ $font-family--normal: "Red Hat Text", "Helvetica", "Arial", sans-serif;
 $font-size--medium: 1.8rem;
 $font-size--large: 2rem;
 
-$white: #fff;
+$white: #FFF;
 
 $color-primary: #FF6C37;
 $color-secondary: #64848E;
@@ -27,3 +27,10 @@ $button-text-color: $color-primary;
 
 $header-bg-color: $color-secondary;
 $header-text-color--hover: #FFEDE7;
+
+$status-bg-color: #FFFAEB;
+$status-done-text-color: #66D0B8;
+$status-failed-text-color: #EA908A;
+$status-inprogress-text-color: #DEBB59;
+
+$task-info-header-bg-color: #F0F3F4;

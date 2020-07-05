@@ -1,0 +1,12 @@
+@import "styles/style.scss";
+
+.statusCell {
+    position: relative;
+    padding: 0;
+    background-color: $status-bg-color;
+    text-align: center;
+}
+
+.stateDescription {
+    opacity: 0.3;
+}

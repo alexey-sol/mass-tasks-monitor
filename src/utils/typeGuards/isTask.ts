@@ -1,20 +1,21 @@
-import Project from "types/Project";
+import Task from "types/Task";
 import isObject from "utils/typeGuards/isObject";
 import isOfType from "utils/typeGuards/isOfType";
 
 function isProject (
     objectToCheck: unknown
-): objectToCheck is Project {
+): objectToCheck is Task {
     if (!isObject(objectToCheck)) {
         return false;
     }
 
-    const { Name } = objectToCheck;
-    const isValidObject = isOfType<Project>(objectToCheck, "Name");
+    const { ProjectId, ProjectTasks } = objectToCheck;
+    const isValidObject = isOfType<Task>(objectToCheck, "ProjectId");
 
     return (
         isValidObject &&
-        typeof Name === "string"
+        typeof ProjectId === "string" &&
+        Array.isArray(ProjectTasks)
     );
 }
 

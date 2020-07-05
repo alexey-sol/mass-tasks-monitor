@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Props, defaultProps } from "./TaskInfo.conf";
+import BaseButton from "components/BaseButton";
 import ProgressBar from "components/ProgressBar";
+import StartTaskDialog from "components/StartTaskDialog";
 import taskStates from "utils/const/taskStates";
 import styles from "./TaskInfo.module.scss";
 
@@ -14,10 +16,27 @@ const TaskInfo = ({
     const { Progress, State } = TaskStatus || {};
     const stateDescription = getStateDescription(State, Progress);
 
+    const [showStartTask, setShowStartTask] = useState(false);
+
+    const startTask = () => {
+        setShowStartTask(false);
+        console.log("Submitting form");
+    };
+
+    const startTaskButton = (
+        <BaseButton
+            className={styles.button}
+            onClick={() => setShowStartTask(true)}
+            text={TaskType}
+        />
+    );
+
     return (
         <tr key={TaskType}>
-            <td>
-                {TaskType}
+            <td className={(TaskStatus) ? "" : styles.withoutPadding}>
+                {TaskStatus
+                    ? TaskType
+                    : startTaskButton}
             </td>
 
             <td className={styles.statusCell}>
@@ -35,6 +54,14 @@ const TaskInfo = ({
             <td>
                 {Desc}
             </td>
+
+            {showStartTask && (
+                <StartTaskDialog
+                    onClose={() => setShowStartTask(false)}
+                    projectTask={projectTask}
+                    startTask={startTask}
+                />
+            )}
         </tr>
     );
 };

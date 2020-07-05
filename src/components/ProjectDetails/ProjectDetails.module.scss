@@ -3,9 +3,23 @@
 $border: 0.6rem solid $bg-color--default;
 
 .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    font-size: $font-size--large;
+    font-weight: 500;
 }
 
 th {

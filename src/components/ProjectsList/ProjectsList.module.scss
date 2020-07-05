@@ -1,9 +1,21 @@
 @import "styles/style.scss";
 
 .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
 }
 
 .button {

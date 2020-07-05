@@ -1,0 +1,53 @@
+@import "styles/style.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem 4rem 4rem;
+}
+
+.dialog {
+    flex-direction: column;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4rem;
+    text-align: center;
+}
+
+.parametersTitle {
+    line-height: 4.5rem;
+    font-weight: 500;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formRow {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 4.5rem);
+    grid-template-columns: minmax(20rem, 26rem) auto;
+
+    &:not(:first-of-type) {
+        margin-top: 0.5rem;
+    }
+
+    .paramName {
+        display: flex;
+        align-items: center;
+    }
+
+    .inputContainer {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.button {
+    margin-top: 3rem;
+}

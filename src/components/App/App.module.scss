@@ -32,6 +32,10 @@ p {
     }
 }
 
+::selection {
+    background-color: $selection-bg-color;
+}
+
 .container {
     display: grid;
     grid-template-areas:

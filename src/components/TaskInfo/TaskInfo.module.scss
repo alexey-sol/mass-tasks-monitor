@@ -9,4 +9,15 @@
 
 .stateDescription {
     opacity: 0.3;
+    user-select: none;
+}
+
+.button {
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 1.5rem;
+}
+
+.withoutPadding {
+    padding: 0;
 }

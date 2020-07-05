@@ -1,9 +1,11 @@
-import Project from "types/Project";
+import { RouteComponentProps } from "react-router-dom";
 
-export interface Props {
-    project: Project;
+import Match from "types/Match";
+
+interface MatchParams {
+    projectId: string;
 }
 
-export const defaultProps = {
-    project: {}
-} as Partial<Props>;
+export interface Props extends RouteComponentProps {
+    match: Match<MatchParams>;
+}

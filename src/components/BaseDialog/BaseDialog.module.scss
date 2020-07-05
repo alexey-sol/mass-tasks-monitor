@@ -1,0 +1,33 @@
+@import "styles/style.scss";
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 54rem;
+        border: 1px solid $base-dialog-border-color;
+        background-color: $base-dialog-bg-color;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.8rem 4rem;
+        background-color: $base-dialog-header-bg-color;
+        font-weight: 500;
+
+        .closeIconButton {
+            position: absolute;
+            top: 1.8rem;
+            right: 1.8rem;
+            cursor: pointer;
+        }
+    }
+}

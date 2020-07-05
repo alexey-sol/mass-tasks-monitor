@@ -1,4 +1,4 @@
-interface Indexer<Type> {
+interface Indexer<Type = unknown> {
     [key: string]: Type;
 }
 

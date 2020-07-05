@@ -38,7 +38,13 @@ const ProjectsList = () => {
 
     const elem = (
         <section className={styles.container}>
-            {buttonElems}
+            <header className={styles.header}>
+                Projects to monitor:
+            </header>
+
+            <section className={styles.list}>
+                {buttonElems}
+            </section>
         </section>
     );
 

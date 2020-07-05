@@ -21,12 +21,22 @@ $grid-width: 120rem;
 
 $bg-color--default: $white;
 
+$base-dialog-bg-color: $bg-color--default;
+$base-dialog-border-color: #E0E0E0;
+$base-dialog-header-bg-color: #F0F3F4;
+
 $button-bg-color: #FFEDE7;
 $button-border-color: $color-primary;
 $button-text-color: $color-primary;
 
 $header-bg-color: $color-secondary;
-$header-text-color--hover: #FFEDE7;
+$header-text-color--hover: $color-primary;
+
+$input-bg-color: $bg-color--default;
+$input-border-color: $color-secondary;
+$input-text-color: $color-secondary;
+
+$selection-bg-color: #fdb9a0;
 
 $status-bg-color: #FFFAEB;
 $status-done-text-color: #66D0B8;

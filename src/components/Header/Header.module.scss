@@ -22,6 +22,11 @@ a {
     color: set-text-color($header-bg-color);
     font-size: $font-size--large;
     user-select: none;
+    transition: color 100ms ease;
+
+    &:hover {
+        color: $header-text-color--hover;
+    }
 }
 
 @media screen and (max-width: 1024px) {

@@ -8,7 +8,7 @@ const Header = () => {
         <header className={styles.container}>
             <section className={styles.content}>
                 <Link
-                    title="Go to the list of projects"
+                    title="Go to projects"
                     to="/"
                 >
                     Mass Tasks

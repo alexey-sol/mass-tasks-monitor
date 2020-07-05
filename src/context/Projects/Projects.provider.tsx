@@ -5,6 +5,7 @@ import Project from "types/Project";
 import Context from "./Projects.context";
 import collections from "utils/const/collections";
 import findDocuments from "utils/firebase/findDocuments";
+import isProjectsArray from "utils/typeGuards/isProjectsArray";
 
 const ProjectsProvider = ({
     children
@@ -13,7 +14,10 @@ const ProjectsProvider = ({
 
     const fetchProjects = async () => {
         const fetchedProjects = await findDocuments(collections.PROJECTS);
-        setProjects(fetchedProjects as Project[]);
+
+        if (isProjectsArray(fetchedProjects)) {
+            setProjects(fetchedProjects);
+        }
     };
 
     const value = {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 import { Props, defaultProps } from "./TaskInfo.conf";
 import BaseButton from "components/BaseButton";
@@ -20,6 +20,8 @@ const TaskInfo = ({
 
     const [showStartTask, setShowStartTask] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
+
+    const hidePopup = useCallback(() => setShowPopup(false), []);
 
     const startTask = (data: Indexer) => {
         setShowStartTask(false);
@@ -75,7 +77,7 @@ const TaskInfo = ({
 
             {showPopup && (
                 <Popup
-                    onClose={() => setShowPopup(false)}
+                    onClose={hidePopup}
                     text="Starting task"
                     theme="success"
                 />

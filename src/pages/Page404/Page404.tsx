@@ -3,7 +3,7 @@ import React from "react";
 function Page404 () {
     return (
         <section>
-            Page404
+            404. Not Found.
         </section>
     );
 }

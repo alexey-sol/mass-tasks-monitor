@@ -9,7 +9,7 @@
   "description": "",
   "scripts": {
     "start": "webpack-dev-server --config webpack.development.js --open",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.production.js"
   },
   "keywords": [],
   "author": "Alexey Soloviev",

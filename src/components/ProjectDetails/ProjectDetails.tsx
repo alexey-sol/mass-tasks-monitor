@@ -1,5 +1,11 @@
 import { withRouter } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+
+import React, {
+    useCallback,
+    useEffect,
+    useRef,
+    useState
+} from "react";
 
 import { Props } from "./ProjectDetails.conf";
 import Project from "types/Project";
@@ -15,8 +21,17 @@ const ProjectDetails = ({
     match
 }: Props) => {
     const { projectId } = match.params;
+
     const [project, setProject] = useState<Project | undefined>(undefined);
     const [projectTasks, setProjectTasks] = useState<ProjectTask[]>([]);
+
+    const timerRef = useRef<number | null>(null);
+
+    const getProjectTasks = useCallback(async () => {
+        const fetchedTasks = await fetchTasks();
+        const fetchedProjectTasks = extractProjectTasks(fetchedTasks, projectId);
+        setProjectTasks(fetchedProjectTasks);
+    }, [projectId]);
 
     useEffect(() => {
         const getProject = async () => {
@@ -25,15 +40,20 @@ const ProjectDetails = ({
             setProject(chosenProject);
         };
 
-        const getProjectTasks = async () => {
-            const fetchedTasks = await fetchTasks();
-            const fetchedProjectTasks = extractProjectTasks(fetchedTasks, projectId);
-            setProjectTasks(fetchedProjectTasks);
-        };
-
         getProject();
         getProjectTasks();
-    }, [projectId]);
+    }, [getProjectTasks, projectId]);
+
+    useEffect(() => {
+        timerRef.current = window.setTimeout(async function myTimer () {
+            await getProjectTasks();
+            timerRef.current = window.setTimeout(myTimer, 1000);
+        }, 1000);
+
+        return () => {
+            window.clearTimeout(timerRef.current as number);
+        };
+    }, [getProjectTasks, projectId]);
 
     const projectTaskElems = projectTasks.map(task => (
         <TaskInfo

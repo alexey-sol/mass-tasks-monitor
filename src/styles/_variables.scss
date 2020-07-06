@@ -18,6 +18,7 @@ $text-color--light: $white;
 
 $header-height: 6rem;
 $grid-width: 120rem;
+$popup-height: $header-height;
 
 $bg-color--default: $white;
 
@@ -30,17 +31,18 @@ $button-border-color: $color-primary;
 $button-text-color: $color-primary;
 
 $header-bg-color: $color-secondary;
-$header-text-color--hover: $color-primary;
+$header-text-color--hover: #ffede7;
 
 $input-bg-color: $bg-color--default;
 $input-border-color: $color-secondary;
 $input-text-color: $color-secondary;
 
+$popup-bg-color--error: $color-error;
+$popup-bg-color--success: $color-success;
+$popup-bg-color--warning: $color-warning;
+
 $selection-bg-color: #fdb9a0;
 
 $status-bg-color: #FFFAEB;
-$status-done-text-color: #66D0B8;
-$status-failed-text-color: #EA908A;
-$status-inprogress-text-color: #DEBB59;
 
 $task-info-header-bg-color: #F0F3F4;

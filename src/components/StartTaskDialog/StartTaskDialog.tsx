@@ -27,8 +27,14 @@ const StartTaskDialog = ({
         });
     };
 
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        startTask(formData);
+    };
+
     const fieldElems = Object
         .entries(RequiredParameters)
+        .sort()
         .map(schema => {
             const paramName = schema[0];
             const paramType = schema[1];
@@ -42,11 +48,12 @@ const StartTaskDialog = ({
                         {paramName}
                     </div>
 
-                    <div className={styles.inputContainer}>
+                    <div className={styles.field}>
                         <Input
                             name={paramName}
                             onChange={handleChange}
                             required
+                            rootClassName={styles.inputContainer}
                             type={paramType === NUMBER ? "number" : "text"}
                             value={formData[paramName]}
                         />
@@ -70,15 +77,17 @@ const StartTaskDialog = ({
                     Parameters:
                 </div>
 
-                <form className={styles.form}>
+                <form
+                    className={styles.form}
+                    onSubmit={handleSubmit}
+                >
                     {fieldElems}
-                </form>
 
-                <BaseButton
-                    className={styles.button}
-                    onClick={startTask}
-                    text="Start task"
-                />
+                    <BaseButton
+                        className={styles.button}
+                        text="Start task"
+                    />
+                </form>
             </section>
         </BaseDialog>
     );

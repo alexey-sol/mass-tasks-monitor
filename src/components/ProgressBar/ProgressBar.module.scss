@@ -9,16 +9,13 @@
 
     &.done {
         background-color: $color-success;
-        color: $status-done-text-color;
     }
 
     &.failed {
         background-color: $color-error;
-        color: $status-failed-text-color;
     }
 
     &.inProgress {
         background-color: $color-warning;
-        color: $status-inprogress-text-color;
     }
 }

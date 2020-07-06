@@ -33,7 +33,8 @@ th {
     }
 
     &:nth-of-type(1) {
-        width: 29.5rem;
+        min-width: 20rem;
+        max-width: 29.5rem;
     }
 
     &:nth-of-type(2) {
@@ -44,8 +45,19 @@ th {
 td {
     padding: 1rem 1.5rem;
     border-bottom: $border;
+    word-break: break-all;
 
     &:not(:last-of-type) {
         border-right: $border;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        th:nth-of-type(3),
+        td:nth-of-type(3)
+        {
+            display: none;
+        }
     }
 }

@@ -30,8 +30,8 @@
 
 .formRow {
     display: grid;
-    grid-template-rows: repeat(auto-fill, 4.5rem);
-    grid-template-columns: minmax(20rem, 26rem) auto;
+    grid-template-rows: repeat(auto-fill, minmax(4.5rem, auto));
+    grid-template-columns: minmax(10rem, 20rem) auto;
 
     &:not(:first-of-type) {
         margin-top: 0.5rem;
@@ -40,14 +40,28 @@
     .paramName {
         display: flex;
         align-items: center;
+        margin-right: 1.5rem;
+        overflow-x: hidden;
+        word-break: break-all;
     }
 
-    .inputContainer {
+    .field {
         display: flex;
         align-items: center;
+
+        .inputContainer {
+            width: 100%;
+        }
     }
 }
 
 .button {
     margin-top: 3rem;
+}
+
+@media screen and (max-width: 640px) {
+    .description {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

@@ -3,11 +3,12 @@
 .container {
     grid-area: main;
     position: relative;
+    padding: 0 3rem 2rem 3rem;
     padding-bottom: 2rem;
 }
 
 @media screen and (max-width: 1024px) {
     .container {
-        padding: 0 3vw;
+        padding: 0 3vw 2vw 3vw;
     }
 }

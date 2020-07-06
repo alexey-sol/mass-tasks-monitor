@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { Props, defaultProps } from "./TaskInfo.conf";
 import BaseButton from "components/BaseButton";
+import Indexer from "types/Indexer";
+import Popup from "components/Popup";
 import ProgressBar from "components/ProgressBar";
 import StartTaskDialog from "components/StartTaskDialog";
 import taskStates from "utils/const/taskStates";
@@ -17,10 +19,18 @@ const TaskInfo = ({
     const stateDescription = getStateDescription(State, Progress);
 
     const [showStartTask, setShowStartTask] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
 
-    const startTask = () => {
+    const startTask = (data: Indexer) => {
         setShowStartTask(false);
-        console.log("Submitting form");
+        setShowPopup(true);
+
+        console.log(
+            data,
+            "Submitting the form. Let's pretend that the button in the Type column " +
+            "has disappeared and there's now a progress bar in the relevant Status " +
+            "field."
+        );
     };
 
     const startTaskButton = (
@@ -60,6 +70,14 @@ const TaskInfo = ({
                     onClose={() => setShowStartTask(false)}
                     projectTask={projectTask}
                     startTask={startTask}
+                />
+            )}
+
+            {showPopup && (
+                <Popup
+                    onClose={() => setShowPopup(false)}
+                    text="Starting task"
+                    theme="success"
                 />
             )}
         </tr>

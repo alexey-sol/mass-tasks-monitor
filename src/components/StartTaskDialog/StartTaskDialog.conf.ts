@@ -1,9 +1,11 @@
+import Indexer from "types/Indexer";
 import PorjectTask from "types/ProjectTask";
 
 export interface Props {
     onClose(): void;
     projectTask: PorjectTask;
-    startTask(): void;
+    setFetchingIsPaused(value: boolean): void;
+    startTask(data: Indexer): void;
 }
 
 export const defaultProps = {

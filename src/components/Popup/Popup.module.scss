@@ -1,0 +1,39 @@
+@import "styles/style.scss";
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $popup-height;
+    text-align: center;
+    user-select: none;
+
+    &.successTheme {
+        background-color: $popup-bg-color--success;
+    }
+
+    &.errorTheme {
+        background-color: $popup-bg-color--error;
+    }
+    
+    &.warningTheme {
+        background-color: $popup-bg-color--warning;
+    }
+
+    .text {
+        cursor: default;
+    }
+
+    .closeIconButton {
+        position: absolute;
+        right: 2rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+}
